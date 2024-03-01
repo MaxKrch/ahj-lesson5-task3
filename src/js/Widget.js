@@ -151,11 +151,21 @@ export default class TicketWidget {
 	}
 
 	toClickDatesThereListeners(event) {
+		if (!this.calendar.calendarContainer.classList.contains("hidden-item") && this.calendar.calendar.dataset.direction === "there") {
+			this.calendar.hideCalendar();
+			return;
+		}
+
 		this.calendar.showCalendar("there", event);
 	}
 
 	toClickDatesBackListeners(event) {
 		if (event.target.classList.contains("form-dates-item-disable")) {
+			return;
+		}
+
+		if (!this.calendar.calendarContainer.classList.contains("hidden-item") && this.calendar.calendar.dataset.direction === "back") {
+			this.calendar.hideCalendar();
 			return;
 		}
 
