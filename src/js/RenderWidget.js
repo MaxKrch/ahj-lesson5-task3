@@ -347,11 +347,13 @@ export default class RenderWidget {
 	showError(error) {
 		this.error.textContent = error;
 		this.error.classList.remove("hidden-item");
+		this.error.classList.add("invalid");
 	}
 
 	hideError() {
 		this.error.textContent = "";
 		this.error.classList.add("hidden-item");
+		this.error.classList.remove("invalid");
 	}
 
 	directionsReverse() {
